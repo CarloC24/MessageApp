@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import logo from "./logo.svg";
+import axios from "axios";
 import "./App.css";
 import io from "socket.io-client";
 
@@ -18,6 +19,16 @@ function App() {
     });
 
     //trying out to make a zoom room api
+    axios
+      .get("https://api.zoom.us/v2/users")
+      .then(res => {
+        console.log(res);
+        alert("succesful");
+      })
+      .catch(err => {
+        console.error(err);
+        alert("unsuccessful");
+      });
   });
   return (
     <div className="App">
